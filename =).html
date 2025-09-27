@@ -1263,7 +1263,7 @@
                 <li><a href="#mensajes">Mensajes</a></li>
                 <li><a href="#mensajes-video">Tiendas</a></li>
                 <li><a href="#galeria">Galería</a></li>
-                <li><a href="#reflexion">Reflexión</a></li>     
+                <li><a href="#reflexion">Reflexión</a></li>
                 <li><a href="#celebracion">Celebración</a></li>
             </ul>
         </nav>
@@ -1501,7 +1501,10 @@
                             </div>
                         </div>
                         <div class="guestbook-message">
-                            "Definitivamente a pesar que tenemos guerras mundiales de vez en cuando, juntos hacen un buen equipo, cada desvelada , cada esfuerzo hace que día día se refleje lo alcanzado, gracias por brindarnos un puesto de trabajo y sobre todo aguantarnos , respire Jefe que aquí estamos felices de tenerlo otro año más 🤝"
+                            "Definitivamente a pesar que tenemos guerras mundiales de vez en cuando, juntos hacen un
+                            buen equipo, cada desvelada , cada esfuerzo hace que día día se refleje lo alcanzado,
+                            gracias por brindarnos un puesto de trabajo y sobre todo aguantarnos , respire Jefe que aquí
+                            estamos felices de tenerlo otro año más 🤝"
                         </div>
                     </div>
 
@@ -1514,8 +1517,10 @@
                             </div>
                         </div>
                         <div class="guestbook-message">
-                            "Estimados señor Gian en este gran día quiero expresarle mi saludo por su este gran día de su cumpleaños que este año este lleno de éxitos y prosperidad y desarrollo  que el sendero de los proyectos de crecimientos acompañen su sueño.
-Feliz cumpleaños Gian reciba usted un fuerte abrazo de mi parte y de mi familia."
+                            "Estimados señor Gian en este gran día quiero expresarle mi saludo por su este gran día de
+                            su cumpleaños que este año este lleno de éxitos y prosperidad y desarrollo que el sendero de
+                            los proyectos de crecimientos acompañen su sueño.
+                            Feliz cumpleaños Gian reciba usted un fuerte abrazo de mi parte y de mi familia."
                         </div>
                     </div>
                 </div>
@@ -1529,47 +1534,47 @@ Feliz cumpleaños Gian reciba usted un fuerte abrazo de mi parte y de mi familia
             <div class="video-messages">
                 <h2>Mensajes de Felicitación</h2>
                 <div class="video-grid">
-                    <div class="video-item" onclick="openModal(this)">
-                        <video src="Archivos Varios/Breña(Video).mp4" poster="Archivos Varios/Breña.png"
-                            controls>
+                    <div class="video-item">
+                        <video src="Archivos Varios/Breña(Video).mp4" poster="Archivos Varios/Breña.png" controls 
+                            onclick="event.stopPropagation()">
                             Tu navegador no soporta el elemento de video.
                         </video>
-                        <div class="video-caption">Breña</div>
+                        <div class="video-caption" onclick="openModal(this.parentElement)">Breña</div>
                     </div>
-                    <div class="video-item" onclick="openModal(this)">
+                    <div class="video-item">
                         <video src="Archivos Varios/ventanillavideo.mp4" poster="Archivos Varios/VentanillaFondo.jpeg"
-                            controls>
+                            controls onclick="event.stopPropagation()">
                             Tu navegador no soporta el elemento de video.
                         </video>
-                        <div class="video-caption">Ventanilla</div>
+                        <div class="video-caption" onclick="openModal(this.parentElement)">Ventanilla</div>
                     </div>
-                    <div class="video-item" onclick="openModal(this)">
-                        <video src="Archivos Varios/sjlvideo.mp4" poster="Archivos Varios/miniaturasjl.PNG"
-                            controls>
+                    <div class="video-item">
+                        <video src="Archivos Varios/sjlvideo.mp4" poster="Archivos Varios/miniaturasjl.PNG" controls 
+                            onclick="event.stopPropagation()">
                             Tu navegador no soporta el elemento de video.
                         </video>
-                        <div class="video-caption">San Juan de Lurigancho</div>
+                        <div class="video-caption" onclick="openModal(this.parentElement)">San Juan de Lurigancho</div>
                     </div>
-                    <div class="video-item" onclick="openModal(this)">
-                        <video src="Archivos Varios/videos/sede1.mp4" poster="Archivos Varios/comasminiatura.jpeg"
-                            controls>
+                    <div class="video-item">
+                        <video src="Archivos Varios/videocomas.mp4" poster="Archivos Varios/comasminiatura.jpeg"
+                            controls onclick="event.stopPropagation()">
                             Tu navegador no soporta el elemento de video.
                         </video>
-                        <div class="video-caption">Comas</div>
+                        <div class="video-caption" onclick="openModal(this.parentElement)">Comas</div>
                     </div>
-                    <div class="video-item" onclick="openModal(this)">
-                        <video src="Archivos Varios/videovillaelsalvador.mp4" poster="Archivos Varios/miniaturavilla.PNG"
-                            controls>
+                    <div class="video-item">
+                        <video src="Archivos Varios/videovillaelsalvador.mp4"
+                            poster="Archivos Varios/miniaturavilla.PNG" controls onclick="event.stopPropagation()">
                             Tu navegador no soporta el elemento de video.
                         </video>
-                        <div class="video-caption">Villa el Salvador</div>
+                        <div class="video-caption" onclick="openModal(this.parentElement)">Villa el Salvador</div>
                     </div>
-                    <div class="video-item" onclick="openModal(this)">
+                    <div class="video-item">
                         <video src="Archivos Varios/Almacen(Video).mp4" poster="Archivos Varios/AlmacenFondo.jpeg"
-                            controls>
+                            controls onclick="event.stopPropagation()">
                             Tu navegador no soporta el elemento de video.
                         </video>
-                        <div class="video-caption">Almacen</div>
+                        <div class="video-caption" onclick="openModal(this.parentElement)">Almacen</div>
                     </div>
                 </div>
             </div>
@@ -1946,65 +1951,58 @@ Feliz cumpleaños Gian reciba usted un fuerte abrazo de mi parte y de mi familia
         }
 
         // Modal de pantalla completa
-        function openModal(slideElement) {
+        function openModal(element) {
             const modal = document.getElementById('imageModal');
             const modalContent = document.getElementById('modalContent');
-
-            // Limpiar el contenido anterior
             modalContent.innerHTML = '';
 
-            // Verificar si es un video o una imagen
-            const videoElement = slideElement.querySelector('video');
-            const imageElement = slideElement.querySelector('img');
+            if (element.querySelector('video')) {
+                // Si es un video, pausar el video original
+                const originalVideo = element.querySelector('video');
+                originalVideo.pause();
 
-            if (videoElement) {
-                // Clonar el video para mantener su estado de reproducción
-                const videoClone = videoElement.cloneNode(true);
-                videoClone.controls = true;
-                videoClone.style.maxWidth = '100%';
-                videoClone.style.maxHeight = '85vh';
-                modalContent.appendChild(videoClone);
-                // Reproducir el video automáticamente
-                videoClone.play().catch(e => console.log('Error al reproducir video:', e));
-            } else if (imageElement) {
-                // Clonar la imagen
-                const imageClone = imageElement.cloneNode(true);
-                // Añadir efecto de zoom suave
-                imageClone.style.transition = 'transform 0.3s ease';
-                modalContent.appendChild(imageClone);
+                // Clonar el video para el modal
+                const video = originalVideo.cloneNode(true);
+                video.controls = true;
+                video.style.maxWidth = '100%';
+                video.style.maxHeight = '85vh';
+                modalContent.appendChild(video);
 
-                // Efecto de zoom al pasar el mouse
-                imageClone.onmouseover = () => {
-                    imageClone.style.transform = 'scale(1.05)';
-                };
-                imageClone.onmouseout = () => {
-                    imageClone.style.transform = 'scale(1)';
-                };
+                // Reproducir el video del modal
+                video.play().catch(error => {
+                    console.error('Error al reproducir el video:', error);
+                });
+            } else if (element.querySelector('img')) {
+                // Si es una imagen
+                const img = element.querySelector('img').cloneNode(true);
+                modalContent.appendChild(img);
+            } else if (element.tagName === 'IMG') {
+                // Si el elemento es directamente una imagen
+                const img = element.cloneNode(true);
+                modalContent.appendChild(img);
             }
-
-            modal.style.display = 'block';
-            modalContent.style.minHeight = '400px';
-            modalContent.style.textAlign = 'center';
 
             modal.style.display = 'block';
         }
 
         function closeModal() {
-            document.getElementById('imageModal').style.display = 'none';
-        }
+            const modal = document.getElementById('imageModal');
+            const modalContent = document.getElementById('modalContent');
 
-        // Navegación suave
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
-                if (target) {
-                    target.scrollIntoView({
-                        behavior: 'smooth'
-                    });
-                }
+            // Pausar cualquier video que esté reproduciéndose en el modal
+            const modalVideo = modalContent.querySelector('video');
+            if (modalVideo) {
+                modalVideo.pause();
+            }
+
+            modal.style.display = 'none';
+            modalContent.innerHTML = '';
+
+            // Restaurar los controles de los videos originales
+            document.querySelectorAll('.video-item video').forEach(video => {
+                video.controls = true;
             });
-        });
+        }
 
         // Efectos de parallax
         window.addEventListener('scroll', () => {
