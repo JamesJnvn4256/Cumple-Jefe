@@ -1,0 +1,2077 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>¡Feliz Cumpleaños Sr. Gian!</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #944545 0%, #2C1810 50%, #FFF8DC 100%);
+            color: #2C1810;
+            overflow-x: hidden;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Confetti Animation */
+        .confetti {
+            position: fixed;
+            top: -10px;
+            z-index: 9999;
+            pointer-events: none;
+            animation: confetti-fall 3s linear forwards;
+        }
+
+        @keyframes confetti-fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(90deg, #8B0000, #A0001C);
+            color: #FFF8DC;
+            padding: 1rem 0;
+            box-shadow: 0 4px 15px rgba(139, 0, 0, 0.3);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo::before {
+            content: "⚽";
+            font-size: 2rem;
+        }
+
+        .nav-links {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-links a {
+            color: #FFF8DC;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            padding: 8px 16px;
+            border-radius: 20px;
+        }
+
+        .nav-links a:hover {
+            background: rgba(255, 248, 220, 0.2);
+            transform: translateY(-2px);
+        }
+
+        /* Music Player */
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 1000;
+            background: rgba(139, 0, 0, 0.9);
+            color: white;
+            border-radius: 50%;
+            padding: 0;
+            cursor: pointer;
+            font-size: 1.5rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            transform: translateX(0);
+        }
+
+        .music-player:hover {
+            background: rgba(139, 0, 0, 1);
+            transform: scale(1.1);
+        }
+
+        @media (max-width: 768px) {
+            .music-player {
+                width: 40px;
+                height: 40px;
+                font-size: 1.2rem;
+                right: 15px;
+                bottom: 15px;
+                top: auto;
+            }
+        }
+
+        /* Floating elements */
+        .floating-element {
+            position: fixed;
+            z-index: 100;
+            pointer-events: none;
+            font-size: 2rem;
+            animation: float-up 8s ease-out infinite;
+        }
+
+        @keyframes float-up {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Secciones */
+        section {
+            min-height: 100vh;
+            padding: 100px 0 50px;
+            display: flex;
+            align-items: center;
+        }
+
+        /* Inicio */
+        .hero {
+            text-align: center;
+            background: linear-gradient(135deg, rgba(255, 248, 220, 0.95), rgba(139, 0, 0, 0.1));
+            border-radius: 30px;
+            margin: 20px;
+            padding: 60px 40px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: "";
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.1) 0%, transparent 70%);
+            animation: rotate 20s linear infinite;
+        }
+
+        @keyframes rotate {
+            0% {
+                transform: rotate(0deg);
+            }
+
+            100% {
+                transform: rotate(360deg);
+            }
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            color: #8B0000;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 30px;
+            color: #2C1810;
+        }
+
+        .hero-image {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+            margin: 30px auto;
+            background: linear-gradient(45deg, #8B0000, #FFF8DC);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8rem;
+            box-shadow: 0 15px 30px rgba(139, 0, 0, 0.3);
+            animation: pulse 2s ease-in-out infinite;
+            cursor: pointer;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.05);
+            }
+        }
+
+        /* Timeline */
+        .timeline {
+            background: rgba(255, 248, 220, 0.9);
+            border-radius: 20px;
+            margin: 20px;
+            padding: 50px;
+        }
+
+        .timeline h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: #8B0000;
+            margin-bottom: 50px;
+        }
+
+        .timeline-container {
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .timeline-line {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 4px;
+            height: 100%;
+            background: linear-gradient(to bottom, #8B0000, #A0001C);
+            border-radius: 2px;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 40px;
+            align-items: center;
+            position: relative;
+        }
+
+        .timeline-item:nth-child(even) {
+            flex-direction: row-reverse;
+        }
+
+        .timeline-content {
+            background: #FFF8DC;
+            padding: 20px;
+            border-radius: 15px;
+            width: 45%;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.1);
+            border-left: 5px solid #8B0000;
+        }
+
+        .timeline-item:nth-child(even) .timeline-content {
+            border-left: none;
+            border-right: 5px solid #8B0000;
+        }
+
+        .timeline-icon {
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #8B0000;
+            color: white;
+            width: 60px;
+            height: 60px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+        }
+
+        /* Carousel */
+        .carousel {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(255, 248, 220, 0.9));
+            border-radius: 20px;
+            margin: 20px;
+            padding: 50px 30px;
+            width: calc(100% - 40px);
+            box-sizing: border-box;
+        }
+
+        .carousel h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: #8B0000;
+            margin-bottom: 30px;
+        }
+
+        .carousel-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            overflow: hidden;
+            border-radius: 15px;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+            .carousel {
+                padding: 20px 10px;
+                margin: 10px;
+            }
+
+            .carousel h2 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+
+            .carousel-container {
+                width: 100%;
+                border-radius: 10px;
+            }
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-slide {
+            min-width: 100%;
+            background: #FFF8DC;
+            padding: 60px;
+            text-align: center;
+            border-radius: 15px;
+            min-height: 400px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .carousel-slide blockquote {
+            font-size: 1.3rem;
+            font-style: italic;
+            line-height: 1.8;
+            color: #2C1810;
+            margin-bottom: 20px;
+            word-wrap: break-word;
+            hyphens: auto;
+        }
+
+        .carousel-slide cite {
+            color: #8B0000;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .carousel-slide {
+                padding: 30px 20px;
+                min-height: 200px;
+            }
+
+            .carousel-slide blockquote {
+                font-size: 1.1rem;
+                line-height: 1.6;
+            }
+
+            .carousel-slide cite {
+                font-size: 1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .carousel-slide {
+                padding: 25px 15px;
+                min-height: 180px;
+            }
+
+            .carousel-slide blockquote {
+                font-size: 1rem;
+                line-height: 1.5;
+            }
+
+            .carousel-slide cite {
+                font-size: 0.9rem;
+            }
+        }
+
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(139, 0, 0, 0.8);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .carousel-nav:hover {
+            background: #8B0000;
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .carousel-prev {
+            left: -20px;
+        }
+
+        .carousel-next {
+            right: -20px;
+        }
+
+        .carousel-indicators {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .carousel-dot {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: rgba(139, 0, 0, 0.3);
+            margin: 0 5px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .carousel-dot.active {
+            background: #8B0000;
+        }
+
+        /* Mensajes del equipo */
+        .messages {
+            background: rgba(255, 248, 220, 0.9);
+            border-radius: 20px;
+            margin: 20px;
+            padding: 50px;
+        }
+
+        .messages h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: #8B0000;
+            margin-bottom: 50px;
+        }
+
+        .guestbook {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .guestbook-entry {
+            background: #FFF8DC;
+            padding: 25px;
+            border-radius: 15px;
+            margin-bottom: 20px;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.1);
+            border-left: 5px solid #8B0000;
+            opacity: 0;
+            transform: translateY(20px);
+            animation: slideIn 0.6s ease forwards;
+        }
+
+        .guestbook-entry:nth-child(even) {
+            animation-delay: 0.2s;
+        }
+
+        .guestbook-entry:nth-child(odd) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes slideIn {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .guestbook-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .guestbook-avatar {
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            background: linear-gradient(45deg, #8B0000, #A0001C);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            margin-right: 15px;
+        }
+
+        .guestbook-info h4 {
+            color: #8B0000;
+            margin-bottom: 5px;
+        }
+
+        .guestbook-info span {
+            color: #666;
+            font-size: 0.9rem;
+        }
+
+        .guestbook-message {
+            font-style: italic;
+            line-height: 1.6;
+            color: #2C1810;
+        }
+
+        /* Mini-game */
+        .minigame {
+            background: linear-gradient(135deg, rgba(255, 248, 220, 0.9), rgba(139, 0, 0, 0.1));
+            border-radius: 20px;
+            margin: 20px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .minigame h2 {
+            font-size: 3rem;
+            color: #8B0000;
+            margin-bottom: 30px;
+        }
+
+        .cake-container {
+            max-width: 400px;
+            margin: 0 auto 30px;
+            background: #FFF8DC;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.1);
+            position: relative;
+        }
+
+        .cake {
+            font-size: 8rem;
+            margin-bottom: 20px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .cake:hover {
+            transform: scale(1.1);
+        }
+
+        .candles {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+
+        .candle {
+            font-size: 3rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .candle.blown {
+            opacity: 0.3;
+            transform: scale(0.8);
+        }
+
+        .blow-message {
+            font-size: 1.2rem;
+            color: #8B0000;
+            margin-top: 20px;
+            opacity: 0;
+            transition: opacity 0.5s ease;
+        }
+
+        .blow-message.show {
+            opacity: 1;
+        }
+
+        /* Galería mejorada */
+        .gallery {
+            background: linear-gradient(135deg, rgba(139, 0, 0, 0.1), rgba(255, 248, 220, 0.9));
+            border-radius: 20px;
+            margin: 20px;
+            padding: 50px 30px;
+            width: calc(100% - 40px);
+            box-sizing: border-box;
+        }
+
+        .gallery h2 {
+            text-align: center;
+            font-size: 3rem;
+            color: #8B0000;
+            margin-bottom: 50px;
+        }
+
+        .slideshow-container {
+            width: 100%;
+            max-width: 1000px;
+            margin: 0 auto;
+            position: relative;
+            background: white;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(139, 0, 0, 0.2);
+        }
+
+        .slides-wrapper {
+            position: relative;
+            min-height: 400px;
+            overflow: hidden;
+        }
+
+        .slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(45deg, #8B0000, #A0001C);
+            color: #FFF8DC;
+            font-size: 4rem;
+            cursor: pointer;
+            transition: all 0.5s ease;
+            opacity: 0;
+            transform: translateX(100%);
+            text-align: center;
+            padding: 40px;
+            line-height: 1.2;
+        }
+
+        .slide.active {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        .slide.prev {
+            transform: translateX(-100%);
+        }
+
+        .slide:hover {
+            transform: translateX(0) scale(1.02);
+        }
+
+        .slide.active:hover {
+            transform: translateX(0) scale(1.02);
+        }
+
+        .slide small {
+            display: block;
+            font-size: 1.2rem;
+            margin-top: 15px;
+            font-weight: normal;
+        }
+
+        .slide-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 15px 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .slide-nav:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        .slide-prev {
+            left: 0;
+        }
+
+        .slide-next {
+            right: 0;
+        }
+
+        .slide-dots {
+            text-align: center;
+            padding: 20px;
+            background: white;
+        }
+
+        .slide-dot {
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            border-radius: 50%;
+            background: rgba(139, 0, 0, 0.3);
+            margin: 0 8px;
+            cursor: pointer;
+            transition: background 0.3s ease;
+        }
+
+        .slide-dot.active {
+            background: #8B0000;
+        }
+
+        /* Modal para pantalla completa */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 10000;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.95);
+        }
+
+        .modal-content {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 90%;
+            max-height: 90vh;
+            border-radius: 15px;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            padding: 20px;
+            background: transparent;
+        }
+
+        .modal-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            object-fit: contain;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-content video {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 10px;
+            box-shadow: 0 5px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 15px;
+            right: 25px;
+            color: white;
+            font-size: 2rem;
+            cursor: pointer;
+            z-index: 10001;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 5px 10px;
+            border-radius: 50%;
+            transition: background 0.3s ease;
+        }
+
+        .modal-close:hover {
+            background: rgba(0, 0, 0, 0.8);
+        }
+
+        @media (max-width: 768px) {
+            .modal-content {
+                max-width: 90%;
+                max-height: 60%;
+                padding: 30px 20px;
+                font-size: 3rem;
+            }
+
+            .modal-close {
+                font-size: 1.5rem;
+                top: 10px;
+                right: 15px;
+                padding: 3px 8px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .modal-content {
+                max-width: 95%;
+                max-height: 50%;
+                padding: 20px 15px;
+                font-size: 2.5rem;
+            }
+
+            .modal-close {
+                font-size: 1.3rem;
+                top: 8px;
+                right: 12px;
+                padding: 2px 6px;
+            }
+        }
+
+        /* Reflexión */
+        .reflection {
+            background: rgba(255, 248, 220, 0.95);
+            border-radius: 20px;
+            margin: 20px;
+            padding: 60px;
+            text-align: center;
+        }
+
+        .reflection h2 {
+            font-size: 3rem;
+            color: #8B0000;
+            margin-bottom: 40px;
+        }
+
+        .reflection-content {
+            max-width: 800px;
+            margin: 0 auto;
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #2C1810;
+        }
+
+        .reflection-content p {
+            margin-bottom: 25px;
+        }
+
+        .highlight {
+            background: linear-gradient(120deg, transparent 0%, rgba(139, 0, 0, 0.1) 50%, transparent 100%);
+            padding: 5px 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            color: #8B0000;
+        }
+
+        /* Celebración */
+        .celebration {
+            background: linear-gradient(135deg, #8B0000, #A0001C);
+            color: #FFF8DC;
+            text-align: center;
+            border-radius: 20px;
+            margin: 20px;
+            padding: 60px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .celebration::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="10" cy="10" r="2" fill="%23FFD700" opacity="0.8"><animate attributeName="cy" values="10;90;10" dur="3s" repeatCount="indefinite"/></circle><circle cx="20" cy="20" r="1.5" fill="%23FF69B4" opacity="0.7"><animate attributeName="cy" values="20;85;20" dur="2.5s" repeatCount="indefinite"/></circle><circle cx="30" cy="15" r="1" fill="%2300CED1" opacity="0.6"><animate attributeName="cy" values="15;80;15" dur="2s" repeatCount="indefinite"/></circle></svg>') repeat;
+            pointer-events: none;
+        }
+
+        .celebration-content {
+            position: relative;
+            z-index: 2;
+        }
+
+        .celebration h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            animation: bounce 2s ease-in-out infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+
+        .balloons {
+            font-size: 4rem;
+            margin: 30px 0;
+            animation: float 3s ease-in-out infinite;
+        }
+
+        @keyframes float {
+
+            0%,
+            100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Botones */
+        .btn {
+            display: inline-block;
+            background: linear-gradient(45deg, #8B0000, #A0001C);
+            color: #FFF8DC;
+            padding: 15px 30px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: bold;
+            margin: 10px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(139, 0, 0, 0.3);
+            border: none;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(139, 0, 0, 0.4);
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-links {
+                display: none;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero p {
+                font-size: 1.2rem;
+            }
+
+            .hero-image {
+                width: 200px;
+                height: 200px;
+                font-size: 5rem;
+            }
+
+            section {
+                padding: 80px 0 30px;
+            }
+
+            .timeline-content {
+                width: 80%;
+            }
+
+            .timeline-line {
+                left: 20px;
+            }
+
+            .timeline-icon {
+                left: 20px;
+            }
+
+            .timeline-item {
+                flex-direction: row !important;
+                padding-left: 80px;
+            }
+
+            .carousel-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                padding: 10px;
+            }
+
+            .carousel-prev {
+                left: 5px;
+            }
+
+            .carousel-next {
+                right: 5px;
+            }
+
+            .carousel-dot {
+                width: 10px;
+                height: 10px;
+                margin: 0 4px;
+            }
+
+            .slide-nav {
+                width: 40px;
+                height: 40px;
+                font-size: 1rem;
+                padding: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+
+            .minigame {
+                padding: 30px;
+            }
+
+            .cake {
+                font-size: 6rem;
+            }
+
+            .candle {
+                font-size: 2.5rem;
+            }
+
+            .messages {
+                padding: 30px;
+            }
+
+            .guestbook-entry {
+                padding: 15px;
+            }
+
+            .gallery {
+                padding: 30px;
+            }
+
+            .slide {
+                height: 300px;
+                font-size: 3rem;
+            }
+
+            .reflection {
+                padding: 30px;
+            }
+
+            .reflection h2 {
+                font-size: 2.5rem;
+            }
+
+            .celebration h2 {
+                font-size: 2.8rem;
+            }
+
+            .balloons {
+                font-size: 3rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hero h1 {
+                font-size: 2rem;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .hero-image {
+                width: 150px;
+                height: 150px;
+                font-size: 4rem;
+            }
+
+            .timeline h2,
+            .carousel h2,
+            .messages h2,
+            .gallery h2,
+            .reflection h2 {
+                font-size: 2rem;
+                margin-bottom: 30px;
+            }
+
+            .timeline-content {
+                width: 100%;
+                margin-left: 10px;
+            }
+
+            .guestbook-avatar {
+                width: 40px;
+                height: 40px;
+            }
+
+            .guestbook-message {
+                font-size: 0.9rem;
+            }
+
+            .slide {
+                height: 250px;
+                font-size: 2.5rem;
+            }
+
+            .slide small {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 12px 24px;
+                font-size: 0.9rem;
+            }
+        }
+
+        @media (max-width: 360px) {
+            .hero h1 {
+                font-size: 1.8rem;
+            }
+
+            .hero-image {
+                width: 120px;
+                height: 120px;
+                font-size: 3rem;
+            }
+
+            .timeline-content,
+            .carousel-slide,
+            .messages,
+            .gallery,
+            .reflection {
+                padding: 15px;
+            }
+
+            .slide {
+                height: 200px;
+                font-size: 2rem;
+            }
+        }
+
+        /* Sección de Mensajes en Video */
+        .video-messages {
+            background: rgba(255, 248, 220, 0.95);
+            border-radius: 20px;
+            margin: 20px;
+            padding: 50px;
+            text-align: center;
+        }
+
+        .video-messages h2 {
+            font-size: 3rem;
+            color: #8B0000;
+            margin-bottom: 40px;
+        }
+
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 0 auto;
+            max-width: 1200px;
+        }
+
+        .video-item {
+            background: #FFF8DC;
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(139, 0, 0, 0.1);
+            cursor: pointer;
+            transition: transform 0.3s ease;
+            position: relative;
+        }
+
+        .video-item:hover {
+            transform: scale(1.05);
+        }
+
+        .video-item video {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            display: block;
+        }
+
+        .video-caption {
+            padding: 15px;
+            background: #8B0000;
+            color: #FFF8DC;
+            font-weight: bold;
+            font-size: 1.1rem;
+        }
+
+        @media (max-width: 768px) {
+            .video-grid {
+                grid-template-columns: 1fr;
+                padding: 0 20px;
+            }
+
+            .video-messages {
+                padding: 30px;
+            }
+
+            .video-messages h2 {
+                font-size: 2.5rem;
+            }
+        }
+
+        /* Scroll suave */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Player de música -->
+    <div class="music-player" id="musicPlayer" onclick="toggleMusic()">🎵</div>
+    <audio id="birthdaySong" loop>
+        <source src="Archivos Varios/CumpleañosFeliz.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <!-- Audio de aplausos y celebración -->
+    <audio id="applauseSound">
+        <source src="Archivos Varios/aplausos.mp3" type="audio/mp3">
+        Tu navegador no soporta el elemento de audio.
+    </audio>
+
+    <header>
+        <nav class="container">
+            <div class="logo">¡Feliz Cumpleaños!</div>
+            <ul class="nav-links">
+                <li><a href="#inicio">Inicio</a></li>
+                <li><a href="#timeline">Trayectoria</a></li>
+                <li><a href="#frases">Frases</a></li>
+                <li><a href="#juego">Juego</a></li>
+                <li><a href="#mensajes">Mensajes</a></li>
+                <li><a href="#mensajes-video">Tiendas</a></li>
+                <li><a href="#galeria">Galería</a></li>
+                <li><a href="#reflexion">Reflexión</a></li>     
+                <li><a href="#celebracion">Celebración</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="inicio">
+        <div class="container">
+            <div class="hero">
+                <div class="hero-content">
+                    <h1>¡Feliz Cumpleaños!</h1>
+                    <p>Sr. Gian - Nuestro Líder</p>
+                    <div class="hero-image" onclick="createConfetti()">🎂</div>
+                    <p>Un día especial para celebrar a quien nos inspira día a día</p>
+                    <a href="#timeline" class="btn">Conoce su Trayectoria</a>
+                    <button class="btn" onclick="createMassiveConfetti()">¡Celebrar! 🎉</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="timeline">
+        <div class="container">
+            <div class="timeline">
+                <h2>🏆 Trayectoria del Sr. Gian</h2>
+                <div class="timeline-container">
+                    <div class="timeline-line"></div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Los Humildes Inicios</h3>
+                            <p>Comenzó vendiendo carritos de niños en la cochera de su suegro, demostrando que las
+                                grandes ideas nacen de los sueños más simples.</p>
+                        </div>
+                        <div class="timeline-icon">🏠</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Primeros Logros</h3>
+                            <p>Construyó un equipo sólido basado en el apoyo mutuo y la confianza, convirtiendo cada
+                                desafío en una oportunidad de crecimiento.</p>
+                        </div>
+                        <div class="timeline-icon">🤝</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Expansión y Crecimiento</h3>
+                            <p>Cada pelea, cada malentendido y cada desvelada sirvieron para fortalecer la visión y
+                                alcanzar nuevas metas empresariales.</p>
+                        </div>
+                        <div class="timeline-icon">📈</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Gerente General</h3>
+                            <p>Hoy en día se posiciona como GERENTE GENERAL de esta gran familia empresarial, liderando
+                                con ejemplo y dedicación.</p>
+                        </div>
+                        <div class="timeline-icon">👑</div>
+                    </div>
+                    <div class="timeline-item">
+                        <div class="timeline-content">
+                            <h3>Legado Actual</h3>
+                            <p>Continúa inspirando a su equipo con su liderazgo y su visión de futuro, construyendo un
+                                legado.</p>
+                        </div>
+                        <div class="timeline-icon">⭐</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="frases">
+        <div class="container">
+            <div class="carousel">
+                <h2>💭 Frases Inspiradoras</h2>
+                <div class="carousel-container">
+                    <div class="carousel-track" id="carouselTrack">
+                        <div class="carousel-slide">
+                            <blockquote>
+                                "Quién diría que apoyarse mutuamente los llevaría a donde están posicionados hoy en día,
+                                en definitiva cada tercera guerra mundial, cada mal entendido y cada desvelada sirvió
+                                para que vean lo que han alcanzado."
+                            </blockquote>
+                            <cite>- La Historia de Giambar (Segun Jennifer 😅)</cite>
+                        </div>
+                        <div class="carousel-slide">
+                            <blockquote>
+                                "Quien diría que vendiendo carritos de niños en la cochera de tu suegro sería el gran
+                                inicio de las nuevas ideas que hoy por hoy te hacen GERENTE GENERAL DE ESTÁ FAMILIA"
+                            </blockquote>
+                            <cite>- El Origen de los Sueños</cite>
+                        </div>
+                        <div class="carousel-slide">
+                            <blockquote>
+                                "El verdadero liderazgo no se mide por el poder que tienes, sino por la capacidad de
+                                inspirar a otros a alcanzar su máximo potencial."
+                            </blockquote>
+                            <cite>- Filosofía de Liderazgo</cite>
+                        </div>
+                        <div class="carousel-slide">
+                            <blockquote>
+                                "Cada desafío es una oportunidad disfrazada. Lo importante no es evitar las
+                                dificultades, sino aprender y crecer con cada una de ellas."
+                            </blockquote>
+                            <cite>- Mentalidad de Crecimiento</cite>
+                        </div>
+                        <div class="carousel-slide">
+                            <blockquote>
+                                "El éxito no es solo llegar a la cima, sino llevarse a todo el equipo contigo en el
+                                camino hacia los logros compartidos."
+                            </blockquote>
+                            <cite>- Trabajo en Equipo</cite>
+                        </div>
+                    </div>
+                    <button class="carousel-nav carousel-prev" onclick="changeSlide(-1)">❮</button>
+                    <button class="carousel-nav carousel-next" onclick="changeSlide(1)">❯</button>
+                </div>
+                <div class="carousel-indicators" id="carouselIndicators"></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="juego">
+        <div class="container">
+            <div class="minigame">
+                <h2>🎮 ¡Sopla las Velas!</h2>
+                <p>Haz clic en cada vela para apagarla y hacer tu deseo de cumpleaños</p>
+                <br>
+                <div class="cake-container">
+                    <div class="cake" onclick="blowAllCandles()">🎂</div>
+                    <div class="candles" id="candles">
+                        <span class="candle" onclick="blowCandle(this)">🕯️</span>
+                        <span class="candle" onclick="blowCandle(this)">🕯️</span>
+                        <span class="candle" onclick="blowCandle(this)">🕯️</span>
+                        <span class="candle" onclick="blowCandle(this)">🕯️</span>
+                        <span class="candle" onclick="blowCandle(this)">🕯️</span>
+                    </div>
+                    <div class="blow-message" id="blowMessage">
+                        ¡Excelente! Tu deseo se ha hecho realidad ✨
+                    </div>
+                </div>
+                <button class="btn" onclick="resetCandles()">Encender Velas de Nuevo</button>
+            </div>
+        </div>
+    </section>
+
+    <section id="mensajes">
+        <div class="container">
+            <div class="messages">
+                <h2>📖 Equipo Giambar</h2>
+                <div class="guestbook">
+                    <div class="guestbook-entry">
+                        <div class="guestbook-header">
+                            <div class="guestbook-avatar">FX</div>
+                            <div class="guestbook-info">
+                                <h4>Felix Aguirre - Área de Contabilidad</h4>
+                                <span>Contador Principal</span>
+                            </div>
+                        </div>
+                        <div class="guestbook-message">
+                            "Gian muchas felicidades en este día tan especial. que la prosperidad siempre sea tu meta
+                            para tu bienestar y el de tu familia"
+                        </div>
+                    </div>
+
+                    <div class="guestbook-entry">
+                        <div class="guestbook-header">
+                            <div class="guestbook-avatar">JV</div>
+                            <div class="guestbook-info">
+                                <h4>James Velezmoro - Área de Contabilidad</h4>
+                                <span>Auxiliar Administrativo</span>
+                            </div>
+                        </div>
+                        <div class="guestbook-message">
+                            "Sr. Gian, Le deseo un muy feliz cumpleaños 🎂. Espero de corazón que pase un día lleno de
+                            alegría junto a sus seres queridos. Quiero agradecerle por permitirme ser parte de este gran
+                            equipo, el cual considero como una familia, y también por darme la oportunidad de crecer
+                            profesionalmente. Sé que a veces le hago renegar con alguna metida de pata 😅, pero siempre
+                            aprendo de cada experiencia y valoro mucho su paciencia y confianza. ¡Le deseo muchos éxitos
+                            más y que siga cumpliendo todas sus metas!"
+                        </div>
+                    </div>
+
+                    <div class="guestbook-entry">
+                        <div class="guestbook-header">
+                            <div class="guestbook-avatar">NC</div>
+                            <div class="guestbook-info">
+                                <h4>Nancy Carrasco - Área de Contabilidad</h4>
+                                <span>Asistente de Contabilidad</span>
+                            </div>
+                        </div>
+                        <div class="guestbook-message">
+                            "¡Feliz cumpleaños a un Jefe!. Dios bendiga y sea su guía especial como es hoy para desearle
+                            los mejores anuncios de felicidad, cariño, amistad y respeto. Le deseo todo el exito de
+                            felicidad que se merece juntos a sus seres queridos."
+                        </div>
+                    </div>
+
+                    <div class="guestbook-entry">
+                        <div class="guestbook-header">
+                            <div class="guestbook-avatar">MT</div>
+                            <div class="guestbook-info">
+                                <h4>Miriam Torres - Área de Contabilidad</h4>
+                                <span>Auxiliar de Contabilidad</span>
+                            </div>
+                        </div>
+                        <div class="guestbook-message">
+                            "Sr. Gian, desearle lo mejor de lo mejor en este nuevo año de vida que Dios le concede. Que
+                            estos nuevos 365 días, sean días de gozo, prosperidad, amor y mucha paz. Que reciba en
+                            abundancia las bendiciones de Dios. Que lo pase relindo.🤗🎂👑🥳🎉🎊🥁🙏🙌😇"
+                        </div>
+                    </div>
+
+                    <div class="guestbook-entry">
+                        <div class="guestbook-header">
+                            <div class="guestbook-avatar">EA</div>
+                            <div class="guestbook-info">
+                                <h4>Estrella - Almacen</h4>
+                                <span>Auxiliar de Almacen</span>
+                            </div>
+                        </div>
+                        <div class="guestbook-message">
+                            "FELIZ DIA JUEFECITO, POR MAS AÑOS MAS DE VIDAAAA, NO RENIEGUES MUCHO QUE SINO LAS ARRUGAS Y
+                            CANAS APARECERAN, MEDIO GRUÑON O RENEGON PERO BUENA PERSONA, DE TU MEJOR MEJOR ELEMENTO
+                            PASALA SUPER."
+                        </div>
+                    </div>
+
+                    <div class="guestbook-entry">
+                        <div class="guestbook-header">
+                            <div class="guestbook-avatar">JB</div>
+                            <div class="guestbook-info">
+                                <h4>Jennifer Bolo - ¿Cual es su cargo?</h4>
+                                <span>-</span>
+                            </div>
+                        </div>
+                        <div class="guestbook-message">
+                            "Definitivamente a pesar que tenemos guerras mundiales de vez en cuando, juntos hacen un buen equipo, cada desvelada , cada esfuerzo hace que día día se refleje lo alcanzado, gracias por brindarnos un puesto de trabajo y sobre todo aguantarnos , respire Jefe que aquí estamos felices de tenerlo otro año más 🤝"
+                        </div>
+                    </div>
+
+                    <div class="guestbook-entry">
+                        <div class="guestbook-header">
+                            <div class="guestbook-avatar">JB</div>
+                            <div class="guestbook-info">
+                                <h4>Javier Barron - Operaciones</h4>
+                                <span>Jefe de Operaciones</span>
+                            </div>
+                        </div>
+                        <div class="guestbook-message">
+                            "Estimados señor Gian en este gran día quiero expresarle mi saludo por su este gran día de su cumpleaños que este año este lleno de éxitos y prosperidad y desarrollo  que el sendero de los proyectos de crecimientos acompañen su sueño.
+Feliz cumpleaños Gian reciba usted un fuerte abrazo de mi parte y de mi familia."
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Sección de Mensajes en Video -->
+    <section id="mensajes-video">
+        <div class="container">
+            <div class="video-messages">
+                <h2>Mensajes de Felicitación</h2>
+                <div class="video-grid">
+                    <div class="video-item" onclick="openModal(this)">
+                        <video src="Archivos Varios/Breña(Video).mp4" poster="Archivos Varios/Breña.png"
+                            controls>
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <div class="video-caption">Breña</div>
+                    </div>
+                    <div class="video-item" onclick="openModal(this)">
+                        <video src="Archivos Varios/ventanillavideo.mp4" poster="Archivos Varios/VentanillaFondo.jpeg"
+                            controls>
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <div class="video-caption">Ventanilla</div>
+                    </div>
+                    <div class="video-item" onclick="openModal(this)">
+                        <video src="Archivos Varios/sjlvideo.mp4" poster="Archivos Varios/miniaturasjl.PNG"
+                            controls>
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <div class="video-caption">San Juan de Lurigancho</div>
+                    </div>
+                    <div class="video-item" onclick="openModal(this)">
+                        <video src="Archivos Varios/videos/sede1.mp4" poster="Archivos Varios/comasminiatura.jpeg"
+                            controls>
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <div class="video-caption">Comas</div>
+                    </div>
+                    <div class="video-item" onclick="openModal(this)">
+                        <video src="Archivos Varios/videos/sede2.mp4" poster="Archivos Varios/thumbnails/sede2.jpg"
+                            controls>
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <div class="video-caption">Villa el Salvador</div>
+                    </div>
+                    <div class="video-item" onclick="openModal(this)">
+                        <video src="Archivos Varios/Almacen(Video).mp4" poster="Archivos Varios/AlmacenFondo.jpeg"
+                            controls>
+                            Tu navegador no soporta el elemento de video.
+                        </video>
+                        <div class="video-caption">Almacen</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="galeria">
+        <div class="container">
+            <div class="gallery">
+                <h2>📷 Momentos Especiales</h2>
+                <div class="slideshow-container">
+                    <div class="slides-wrapper">
+                        <div class="slide active" onclick="openModal(this)">
+                            <img src="Archivos Varios/Imagen1.jpeg" alt="Momento 1"
+                                style="max-width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                        <div class="slide" onclick="openModal(this)">
+                            <img src="Archivos Varios/Imagen2.jpeg" alt="Momento 2"
+                                style="max-width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                        <div class="slide" onclick="openModal(this)">
+                            <video controls style="max-width: 100%; height: 300px; object-fit: cover;">
+                                <source src="Archivos Varios/Imagen3(Video).mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                        </div>
+                        <div class="slide" onclick="openModal(this)">
+                            <img src="Archivos Varios/Imagen4.jpeg" alt="Momento 4"
+                                style="max-width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                        <div class="slide" onclick="openModal(this)">
+                            <img src="Archivos Varios/Imagen5.jpeg" alt="Momento 5"
+                                style="max-width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                        <div class="slide" onclick="openModal(this)">
+                            <img src="Archivos Varios/Imagen6.jpeg" alt="Momento 6"
+                                style="max-width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                        <div class="slide" onclick="openModal(this)">
+                            <img src="Archivos Varios/Imagen7.jpeg" alt="Momento 7"
+                                style="max-width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                        <div class="slide" onclick="openModal(this)">
+                            <img src="Archivos Varios/Imagen8.jpeg" alt="Momento 8"
+                                style="max-width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                        <div class="slide" onclick="openModal(this)">
+                            <img src="Archivos Varios/Imagen9.jpeg" alt="Momento 9"
+                                style="max-width: 100%; height: 300px; object-fit: cover;">
+                        </div>
+                        <div class="slide" onclick="openModal(this)">
+                            <video controls style="max-width: 100%; height: 300px; object-fit: cover;">
+                                <source src="Archivos Varios/Imagen10(video).mp4" type="video/mp4">
+                                Tu navegador no soporta el elemento de video.
+                            </video>
+                        </div>
+                    </div>
+
+                    <button class="slide-nav slide-prev" onclick="changeGallerySlide(-1)">❮</button>
+                    <button class="slide-nav slide-next" onclick="changeGallerySlide(1)">❯</button>
+
+                    <div class="slide-dots" id="slideDots"></div>
+                </div>
+                <p style="text-align: center; margin-top: 30px; font-style: italic; color: #8B0000;">
+                    Haz clic en cualquier imagen para verla en pantalla completa
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Modal para pantalla completa -->
+    <div id="imageModal" class="modal" onclick="closeModal()">
+        <span class="modal-close" onclick="closeModal()">&times;</span>
+        <div class="modal-content" id="modalContent" onclick="event.stopPropagation()">
+        </div>
+    </div>
+
+    <section id="reflexion">
+        <div class="container">
+            <div class="reflection">
+                <h2>Nuestro Líder, Nuestro Ejemplo</h2>
+                <div class="reflection-content">
+                    <p>Sr. Gian, en este día tan especial queremos expresar nuestro más sincero agradecimiento por su
+                        <span class="highlight">liderazgo excepcional</span> y el constante apoyo que nos brinda.
+                    </p>
+
+                    <p>Bajo su guía hemos aprendido que <span class="highlight">no hay meta imposible de
+                            alcanzar</span>, y que con visión, compromiso y perseverancia se pueden superar todos los
+                        desafíos.</p>
+
+                    <p>Usted nos inspira a dar siempre lo mejor de nosotros, no solo con sus decisiones, sino también
+                        con su <span class="highlight">ejemplo y cercanía</span>, motivándonos a crecer tanto en lo
+                        profesional como en lo personal.</p>
+
+                    <p>En las buenas y en las malas ha sabido acompañarnos, recordándonos que un verdadero líder no solo
+                        dirige, sino que también <span class="highlight">motiva y respalda</span> a su equipo.</p>
+
+                    <p>Hoy, en su cumpleaños, renovamos nuestro compromiso de seguir trabajando juntos para alcanzar
+                        nuevas metas, con la misma pasión y entrega que usted nos transmite día a día.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="celebracion">
+        <div class="container">
+            <div class="celebration">
+                <div class="celebration-content">
+                    <h2>¡A Celebrar!</h2>
+                    <div class="balloons">🎈🎈🎈</div>
+                    <p style="font-size: 1.5rem; margin-bottom: 30px;">
+                        Que este nuevo año de vida esté lleno de éxitos profesionales,
+                        alegrías personales y muchas bendiciones más.
+                    </p>
+                    <div style="font-size: 3rem; margin: 30px 0;">🎂⚽🏆</div>
+                    <p style="font-size: 1.3rem;">
+                        De parte de todo el equipo Giambar que lo admira y lo respeta
+                    </p>
+                    <button class="btn" onclick="createMassiveConfetti()"
+                        style="background: #FFF8DC; color: #8B0000; margin-top: 30px;">
+                        ¡Celebrar con Confeti! 🎊
+                    </button>
+                    <a href="#inicio" class="btn" style="background: #FFF8DC; color: #8B0000;">
+                        Volver al Inicio
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Variables globales
+        let isPlaying = false;
+        let currentSlide = 0;
+        let currentGallerySlide = 0;
+        let carouselInterval;
+        let galleryInterval;
+        let floatingInterval;
+
+        // Música de fondo
+        async function toggleMusic() {
+            const player = document.getElementById('musicPlayer');
+            const audio = document.getElementById('birthdaySong');
+
+            try {
+                if (isPlaying) {
+                    audio.pause();
+                    player.innerHTML = '🎵';
+                    player.style.opacity = '0.7';
+                    isPlaying = false;
+                } else {
+                    // Intentar reproducir el audio
+                    const playPromise = audio.play();
+                    if (playPromise !== undefined) {
+                        await playPromise;
+                        player.innerHTML = '🔊';
+                        player.style.opacity = '1';
+                        isPlaying = true;
+                    }
+                }
+            } catch (error) {
+                console.error('Error con el audio:', error);
+                alert('No se pudo reproducir la música. Asegúrate de que tu navegador permite la reproducción de audio y haz clic nuevamente.');
+                player.innerHTML = '🎵';
+                player.style.opacity = '0.7';
+                isPlaying = false;
+            }
+        }
+
+        // Confeti y sonido de celebración
+        function playApplause() {
+            const applause = document.getElementById('applauseSound');
+            applause.currentTime = 0; // Reinicia el audio si ya estaba reproduciéndose
+            applause.play().catch(error => {
+                console.error('Error al reproducir aplausos:', error);
+            });
+        }
+
+        function createConfetti() {
+            const colors = ['🎊', '🎉', '✨', '⭐', '💫'];
+            for (let i = 0; i < 50; i++) {
+                setTimeout(() => {
+                    const confetti = document.createElement('div');
+                    confetti.className = 'confetti';
+                    confetti.innerHTML = colors[Math.floor(Math.random() * colors.length)];
+                    confetti.style.left = Math.random() * 100 + 'vw';
+                    confetti.style.fontSize = (Math.random() * 20 + 10) + 'px';
+                    confetti.style.animationDuration = (Math.random() * 2 + 2) + 's';
+                    document.body.appendChild(confetti);
+
+                    setTimeout(() => confetti.remove(), 3000);
+                }, i * 50);
+            }
+        }
+
+        function createMassiveConfetti() {
+            playApplause(); // Reproducir el sonido de aplausos
+            for (let burst = 0; burst < 5; burst++) {
+                setTimeout(() => createConfetti(), burst * 500);
+            }
+        }
+
+        // Elementos flotantes
+        function createFloatingElements() {
+            const elements = ['🎈', '🎀', '⭐', '✨', '🎊'];
+            const element = document.createElement('div');
+            element.className = 'floating-element';
+            element.innerHTML = elements[Math.floor(Math.random() * elements.length)];
+            element.style.left = Math.random() * 100 + 'vw';
+            element.style.animationDuration = (Math.random() * 3 + 5) + 's';
+            document.body.appendChild(element);
+
+            setTimeout(() => element.remove(), 8000);
+        }
+
+        // Carrusel de frases
+        function initCarousel() {
+            const track = document.getElementById('carouselTrack');
+            const indicators = document.getElementById('carouselIndicators');
+            const slides = track.children.length;
+
+            // Crear indicadores
+            for (let i = 0; i < slides; i++) {
+                const dot = document.createElement('span');
+                dot.className = 'carousel-dot';
+                if (i === 0) dot.classList.add('active');
+                dot.onclick = () => goToSlide(i);
+                indicators.appendChild(dot);
+            }
+
+            // Auto-avanzar
+            carouselInterval = setInterval(() => changeSlide(1), 5000);
+        }
+
+        function changeSlide(direction) {
+            const track = document.getElementById('carouselTrack');
+            const slides = track.children.length;
+            const dots = document.querySelectorAll('.carousel-dot');
+
+            currentSlide = (currentSlide + direction + slides) % slides;
+
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            dots.forEach((dot, index) => {
+                dot.classList.toggle('active', index === currentSlide);
+            });
+        }
+
+        function goToSlide(index) {
+            clearInterval(carouselInterval);
+            const track = document.getElementById('carouselTrack');
+            const dots = document.querySelectorAll('.carousel-dot');
+
+            currentSlide = index;
+            track.style.transform = `translateX(-${currentSlide * 100}%)`;
+
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === currentSlide);
+            });
+
+            carouselInterval = setInterval(() => changeSlide(1), 5000);
+        }
+
+        // Mini-juego de velas
+        function blowCandle(candle) {
+            candle.classList.add('blown');
+            candle.innerHTML = '💨';
+
+            // Verificar si todas las velas están apagadas
+            const candles = document.querySelectorAll('.candle');
+            const blownCandles = document.querySelectorAll('.candle.blown');
+
+            if (candles.length === blownCandles.length) {
+                document.getElementById('blowMessage').classList.add('show');
+                createConfetti();
+            }
+        }
+
+        function blowAllCandles() {
+            const candles = document.querySelectorAll('.candle');
+            candles.forEach((candle, index) => {
+                setTimeout(() => blowCandle(candle), index * 200);
+            });
+        }
+
+        function resetCandles() {
+            const candles = document.querySelectorAll('.candle');
+            candles.forEach(candle => {
+                candle.classList.remove('blown');
+                candle.innerHTML = '🕯️';
+            });
+            document.getElementById('blowMessage').classList.remove('show');
+        }
+
+        // Galería con slideshow
+        function initGallery() {
+            const slidesWrapper = document.querySelector('.slides-wrapper');
+            const slides = slidesWrapper.querySelectorAll('.slide');
+            const dotsContainer = document.getElementById('slideDots');
+
+            // Crear indicadores
+            slides.forEach((_, index) => {
+                const dot = document.createElement('span');
+                dot.className = 'slide-dot';
+                if (index === 0) dot.classList.add('active');
+                dot.onclick = () => goToGallerySlide(index);
+                dotsContainer.appendChild(dot);
+            });
+
+            // Auto-avanzar
+            galleryInterval = setInterval(() => changeGallerySlide(1), 4000);
+        }
+
+        function changeGallerySlide(direction) {
+            const slides = document.querySelectorAll('.slides-wrapper .slide');
+            const dots = document.querySelectorAll('.slide-dot');
+
+            // Remover clases activas
+            slides[currentGallerySlide].classList.remove('active');
+            dots[currentGallerySlide].classList.remove('active');
+
+            // Calcular nuevo slide
+            currentGallerySlide = (currentGallerySlide + direction + slides.length) % slides.length;
+
+            // Agregar clases activas
+            slides[currentGallerySlide].classList.add('active');
+            dots[currentGallerySlide].classList.add('active');
+
+            // Animación suave
+            slides.forEach((slide, index) => {
+                if (index === currentGallerySlide) {
+                    slide.style.transform = 'translateX(0)';
+                    slide.style.opacity = '1';
+                } else if (index < currentGallerySlide) {
+                    slide.style.transform = 'translateX(-100%)';
+                    slide.style.opacity = '0';
+                } else {
+                    slide.style.transform = 'translateX(100%)';
+                    slide.style.opacity = '0';
+                }
+            });
+        }
+
+        function goToGallerySlide(index) {
+            clearInterval(galleryInterval);
+            const slides = document.querySelectorAll('.slides-wrapper .slide');
+            const dots = document.querySelectorAll('.slide-dot');
+
+            // Remover clases activas
+            slides[currentGallerySlide].classList.remove('active');
+            dots[currentGallerySlide].classList.remove('active');
+
+            currentGallerySlide = index;
+
+            // Agregar clases activas
+            slides[currentGallerySlide].classList.add('active');
+            dots[currentGallerySlide].classList.add('active');
+
+            // Animación suave
+            slides.forEach((slide, slideIndex) => {
+                if (slideIndex === currentGallerySlide) {
+                    slide.style.transform = 'translateX(0)';
+                    slide.style.opacity = '1';
+                } else if (slideIndex < currentGallerySlide) {
+                    slide.style.transform = 'translateX(-100%)';
+                    slide.style.opacity = '0';
+                } else {
+                    slide.style.transform = 'translateX(100%)';
+                    slide.style.opacity = '0';
+                }
+            });
+
+            galleryInterval = setInterval(() => changeGallerySlide(1), 4000);
+        }
+
+        // Modal de pantalla completa
+        function openModal(slideElement) {
+            const modal = document.getElementById('imageModal');
+            const modalContent = document.getElementById('modalContent');
+
+            // Limpiar el contenido anterior
+            modalContent.innerHTML = '';
+
+            // Verificar si es un video o una imagen
+            const videoElement = slideElement.querySelector('video');
+            const imageElement = slideElement.querySelector('img');
+
+            if (videoElement) {
+                // Clonar el video para mantener su estado de reproducción
+                const videoClone = videoElement.cloneNode(true);
+                videoClone.controls = true;
+                videoClone.style.maxWidth = '100%';
+                videoClone.style.maxHeight = '85vh';
+                modalContent.appendChild(videoClone);
+                // Reproducir el video automáticamente
+                videoClone.play().catch(e => console.log('Error al reproducir video:', e));
+            } else if (imageElement) {
+                // Clonar la imagen
+                const imageClone = imageElement.cloneNode(true);
+                // Añadir efecto de zoom suave
+                imageClone.style.transition = 'transform 0.3s ease';
+                modalContent.appendChild(imageClone);
+
+                // Efecto de zoom al pasar el mouse
+                imageClone.onmouseover = () => {
+                    imageClone.style.transform = 'scale(1.05)';
+                };
+                imageClone.onmouseout = () => {
+                    imageClone.style.transform = 'scale(1)';
+                };
+            }
+
+            modal.style.display = 'block';
+            modalContent.style.minHeight = '400px';
+            modalContent.style.textAlign = 'center';
+
+            modal.style.display = 'block';
+        }
+
+        function closeModal() {
+            document.getElementById('imageModal').style.display = 'none';
+        }
+
+        // Navegación suave
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Efectos de parallax
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const parallax = document.querySelector('.hero::before');
+            if (parallax) {
+                parallax.style.transform = `translateY(${scrolled * 0.5}px)`;
+            }
+        });
+
+        // Animaciones de entrada
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function (entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Inicialización
+        document.addEventListener('DOMContentLoaded', function () {
+            // Confeti inicial
+            setTimeout(createConfetti, 1000);
+
+            // Inicializar carrusel
+            initCarousel();
+
+            // Inicializar galería
+            initGallery();
+
+            // Elementos flotantes periódicos
+            floatingInterval = setInterval(createFloatingElements, 3000);
+
+            // Observer para animaciones
+            document.querySelectorAll('.guestbook-entry, .timeline-item, .message-card').forEach(element => {
+                element.style.opacity = '0';
+                element.style.transform = 'translateY(30px)';
+                element.style.transition = 'all 0.6s ease-out';
+                observer.observe(element);
+            });
+
+            // Detener auto-avance cuando el usuario interactúa
+            document.addEventListener('click', () => {
+                clearInterval(carouselInterval);
+                clearInterval(galleryInterval);
+                carouselInterval = setInterval(() => changeSlide(1), 8000);
+                galleryInterval = setInterval(() => changeGallerySlide(1), 6000);
+            });
+        });
+
+        // Keyboard navigation
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape') {
+                closeModal();
+            } else if (e.key === 'ArrowLeft') {
+                changeGallerySlide(-1);
+            } else if (e.key === 'ArrowRight') {
+                changeGallerySlide(1);
+            }
+        });
+    </script>
+</body>
+
+</html>
