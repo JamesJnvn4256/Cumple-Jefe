@@ -1595,11 +1595,12 @@
                             <img src="Archivos Varios/Imagen2.jpeg" alt="Momento 2"
                                 style="max-width: 100%; height: 300px; object-fit: cover;">
                         </div>
-                        <div class="slide" onclick="openModal(this)">
-                            <video controls style="max-width: 100%; height: 300px; object-fit: cover;">
+                        <div class="slide">
+                            <video controls style="max-width: 100%; height: 300px; object-fit: cover;" onclick="event.stopPropagation()">
                                 <source src="Archivos Varios/Imagen3(Video).mp4" type="video/mp4">
                                 Tu navegador no soporta el elemento de video.
                             </video>
+                            <div onclick="openModal(this.parentElement)" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer;"></div>
                         </div>
                         <div class="slide" onclick="openModal(this)">
                             <img src="Archivos Varios/Imagen4.jpeg" alt="Momento 4"
@@ -1625,11 +1626,12 @@
                             <img src="Archivos Varios/Imagen9.jpeg" alt="Momento 9"
                                 style="max-width: 100%; height: 300px; object-fit: cover;">
                         </div>
-                        <div class="slide" onclick="openModal(this)">
-                            <video controls style="max-width: 100%; height: 300px; object-fit: cover;">
+                        <div class="slide">
+                            <video controls style="max-width: 100%; height: 300px; object-fit: cover;" onclick="event.stopPropagation()">
                                 <source src="Archivos Varios/Imagen10(video).mp4" type="video/mp4">
                                 Tu navegador no soporta el elemento de video.
                             </video>
+                            <div onclick="openModal(this.parentElement)" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; cursor: pointer;"></div>
                         </div>
                     </div>
 
